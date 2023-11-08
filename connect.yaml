@@ -1,34 +1,3 @@
-# deployAs:
-#   - name: service_app_name
-#     applicationType: service
-#     endpoint: /service
-#     scripts:
-#       postDeploy: npm run connector:post-deploy
-#       preUndeploy: npm run connector:pre-undeploy
-#     configuration:
-#       standardConfiguration:
-#         - key: CTP_PROJECT_KEY
-#           description: Project key of the commercetools Composable Commerce Project
-#           required: true
-#           default: 'default-key'
-#       securedConfiguration:
-#         - key: CTP_CLIENT_ID
-#           description: client_id of an API Client for the commercetools Composable Commerce Project
-#           required: true
-#   - name: job_app_name
-#     applicationType: job
-#     endpoint: /job
-#     properties:
-#       schedule: '*/5 * * * *'
-#     configuration:
-#       standardConfiguration:
-#         - key: CTP_PROJECT_KEY
-#           description: Project key of the commercetools Composable Commerce Project
-#           required: true
-#       securedConfiguration:
-#         - key: CTP_CLIENT_ID
-#           description: client_id of an API Client for the commercetools Composable Commerce Project
-#           required: true
 deployAs:
   - name: service_app_name
     applicationType: service
@@ -38,12 +7,12 @@ deployAs:
       preUndeploy: npm run connector:pre-undeploy
     configuration:
       standardConfiguration:
-        - key: seller-b-store
+        - key: CTP_PROJECT_KEY
           description: Project key of the commercetools Composable Commerce Project
           required: true
           default: 'default-key'
       securedConfiguration:
-        - key: 1-6pcUlHFCEzxV0ItRW4HCFe
+        - key: CTP_CLIENT_ID
           description: client_id of an API Client for the commercetools Composable Commerce Project
           required: true
   - name: job_app_name
@@ -60,3 +29,35 @@ deployAs:
         - key: CTP_CLIENT_ID
           description: client_id of an API Client for the commercetools Composable Commerce Project
           required: true
+
+# deployAs:
+#   - name: service_app_name
+#     applicationType: service
+#     endpoint: /service
+#     scripts:
+#       postDeploy: npm run connector:post-deploy
+#       preUndeploy: npm run connector:pre-undeploy
+#     configuration:
+#       standardConfiguration:
+#         - key: seller-b-store
+#           description: Project key of the commercetools Composable Commerce Project
+#           required: true
+#           default: 'default-key'
+#       securedConfiguration:
+#         - key: 1-6pcUlHFCEzxV0ItRW4HCFe
+#           description: client_id of an API Client for the commercetools Composable Commerce Project
+#           required: true
+#   - name: job_app_name
+#     applicationType: job
+#     endpoint: /job
+#     properties:
+#       schedule: '*/5 * * * *'
+#     configuration:
+#       standardConfiguration:
+#         - key: CTP_PROJECT_KEY
+#           description: Project key of the commercetools Composable Commerce Project
+#           required: true
+#       securedConfiguration:
+#         - key: CTP_CLIENT_ID
+#           description: client_id of an API Client for the commercetools Composable Commerce Project
+#           required: true
