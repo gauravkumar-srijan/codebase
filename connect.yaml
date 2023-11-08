@@ -7,7 +7,7 @@ deployAs:
       preUndeploy: npm install && npm run connector:pre-undeploy
     configuration:
       standardConfiguration:
-        - key: https://aoi.australia-southeast1.gcp.commercetools.com
+        - key: australia-southeast1
           description: commercetools Composable Commerce API region
       securedConfiguration:
         - key: seller-b-store
