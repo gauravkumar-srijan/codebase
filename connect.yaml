@@ -7,7 +7,7 @@ deployAs:
       preUndeploy: npm install && npm run connector:pre-undeploy
     configuration:
       standardConfiguration:
-        - key: australia-southeast1.gcp
+        - key: https://api.australia-southeast1.gcp.commercetools.com
           description: commercetools Composable Commerce API region
       securedConfiguration:
         - key: seller-b-store
@@ -18,67 +18,51 @@ deployAs:
           description: commercetools Composable Commerce client secret
         - key: manage_project:manage_api_clients:ecommerce123 view_api_clients:ecommerce123
           description: commercetools Composable Commerce client scope
-
-# deployAs:
-#   - name: service_app_name
-#     applicationType: service
-#     endpoint: /service
-#     scripts:
-#       postDeploy: npm run connector:post-deploy
-#       preUndeploy: npm run connector:pre-undeploy
-#     configuration:
-#       standardConfiguration:
-#         - key: CTP_PROJECT_KEY
-#           description: Project key of the commercetools Composable Commerce Project
-#           required: true
-#           default: 'default-key'
-#       securedConfiguration:
-#         - key: CTP_CLIENT_ID
-#           description: client_id of an API Client for the commercetools Composable Commerce Project
-#           required: true
-#   - name: job_app_name
-#     applicationType: job
-#     endpoint: /job
-#     properties:
-#       schedule: '*/5 * * * *'
-#     configuration:
-#       standardConfiguration:
-#         - key: CTP_PROJECT_KEY
-#           description: Project key of the commercetools Composable Commerce Project
-#           required: true
-#       securedConfiguration:
-#         - key: CTP_CLIENT_ID
-#           description: client_id of an API Client for the commercetools Composable Commerce Project
-#           required: true
-
-# deployAs:
-#   - name: service_app_name
-#     applicationType: service
-#     endpoint: /service
-#     scripts:
-#       postDeploy: npm run connector:post-deploy
-#       preUndeploy: npm run connector:pre-undeploy
-#     configuration:
-#       standardConfiguration:
-#         - key: seller-b-store
-#           description: Project key of the commercetools Composable Commerce Project
-#           required: true
-#           default: 'default-key'
-#       securedConfiguration:
-#         - key: 1-6pcUlHFCEzxV0ItRW4HCFe
-#           description: client_id of an API Client for the commercetools Composable Commerce Project
-#           required: true
-#   - name: job_app_name
-#     applicationType: job
-#     endpoint: /job
-#     properties:
-#       schedule: '*/5 * * * *'
-#     configuration:
-#       standardConfiguration:
-#         - key: CTP_PROJECT_KEY
-#           description: Project key of the commercetools Composable Commerce Project
-#           required: true
-#       securedConfiguration:
-#         - key: CTP_CLIENT_ID
-#           description: client_id of an API Client for the commercetools Composable Commerce Project
-#           required: true
+  - name: job
+    applicationType: job
+    endpoint: /job
+    properties:
+      schedule: "*/5 * * * *"
+    configuration:
+      standardConfiguration:
+        - key: https://api.australia-southeast1.gcp.commercetools.com
+          description: commercetools Composable Commerce API region
+      securedConfiguration:
+        - key: seller-b-store
+          description: commercetools Composable Commerce project key
+        - key: 1-6pcUlHFCEzxV0ItRW4HCFe
+          description: commercetools Composable Commerce client ID
+        - key: lfPjDPxOwnr1vrVAwO_77w-xF4HlTDKK
+          description: commercetools Composable Commerce client secret
+        - key: manage_project:manage_api_clients:ecommerce123 view_api_clients:ecommerce123
+          description: commercetools Composable Commerce client scope
+  - name: event
+    applicationType: event
+    endpoint: /event
+    scripts:
+      postDeploy: npm install && npm run connector:post-deploy
+      preUndeploy: npm install && npm run connector:pre-undeploy
+    configuration:
+      standardConfiguration:
+        - key: https://api.australia-southeast1.gcp.commercetools.com
+          description: commercetools Composable Commerce API region
+      securedConfiguration:
+        - key: seller-b-store
+          description: commercetools Composable Commerce project key
+        - key: 1-6pcUlHFCEzxV0ItRW4HCFe
+          description: commercetools Composable Commerce client ID
+        - key: lfPjDPxOwnr1vrVAwO_77w-xF4HlTDKK
+          description: commercetools Composable Commerce client secret
+        - key: manage_project:manage_api_clients:ecommerce123 view_api_clients:ecommerce123
+          description: commercetools Composable Commerce client scope
+  - name: mc-app
+    applicationType: mc-app
+    endpoint: /
+    configuration:
+      standardConfiguration:
+        - key: APPLICATION_ID
+          description: The Custom Application ID is provided when you add a Custom Application in the Merchant Center
+          required: true
+        - key: CLOUD_IDENTIFIER
+          description: The identifier of the cloud Region that the Custom Application uses to connect to Composable Commerce. The values map to the actual Merchant Center API URL for that Region
+          required: true
